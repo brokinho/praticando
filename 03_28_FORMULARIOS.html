@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+	Aula 1: 28/03
+	Aula 2: 03/04
+	Aula 3: 04/04
+
+	<form></form> -> Tag p/ criação de formulários
+	<label></label> -> Define o "título" do campo
+	<label for="ID"> -> Ao clicar no label, é direcionado automaticamente p/ o campo de preenchimento em questão
+	<input> -> Tag para criação de campo do formulário
+	<fieldset></fieldset> -> Cria um campo ao redor do formulário
+	<legend></legend> -> Nome do fieldset
+	<datalist></datalist> -> Cria uma lista (cores, por exemplo)
+	<option></option> -> Define uma opção de uma lista. Pode conter um atributo value=""
+	<select></select> -> Cria uma caixa de seleção em lista, utiliza a tag <option></option>
+	<optgroup></optgroup> -> Permite colocar um "título" p/ um grupo de opções em uma caixa de lista suspensa
+	<textarea></textarea> -> cria um campo para inserção de textos longos. Caracteres ilimitados.
+	-------------------------------------------------------
+	PARÂMETROS:
+	id="NomeID" -> Parâmetro p/ atribuir um ID ao campo
+	name="Nome" -> Parâmetro p/ definir o nome do campo
+	size="X" -> Parâmetro p/ definir o tamanho do campo
+	maxlenght="X" -> Parâmetro p/ definir o máximo de caracteres do campo
+	minlenght="X" -> Parâmetro p/ definir o mínimo de caracteres do campo
+	required -> Parâmetro p/ tornar o campo obrigatório de preenchimento
+	placeholder="Texto" -> Insere um texto no background do campo (dica)
+	max="X" -> Parâmetro p/ valor numérico máximo
+	min="X" -> Parâmetro p/ valor numério mínimo
+	step="X" -> Passo da contagem
+	accept="formato1,formato2" -> Especifica os formatos de arquivos permitidos
+	value="X" -> define um valor para o atributo
+	checked -> define um campo selecionável pré-selecionado
+	readonly -> dado apenas p/ leitura. Não é possível editar, geralmente acompanhado por value=""
+	disabled -> desabilita o campo em questão, permitindo apenas a leitura, geralmente acompanhado por value=""
+	list="ID" -> Atribui uma lista para o item em questão
+	selected -> similar ao checked, mas seleciona um item de uma lista suspensa
+	multiple -> permite marcar várias opções (select)
+	rows="X" -> define o número de linhas (textarea)
+	cols="X" -> define o número de colunas (textarea)
+	spellcheck -> verifica a ortografia
+
+
+
+	type="text/tel/email/number/date/submit/file/password/radio/datatime-local/color/checkbox/time/month/week/range/reset/button/url" -> Parâmetro p/ definir o tipo de conteúdo do campo
+	- text: texto convencional
+	- tel: número de telefone (valor semântico)
+	- email: email com @ e sufixo
+	- number: apenas números
+	- date: datas
+	- submit: botão de submeter
+	- file: inserir arquivos
+	- password: inserir texto em formato de * (sigiloso)
+	- radio: caixa de seleção
+	- datatime-local: data e hora
+	- color: paleta de cores, geralmente acompanhado por value=""
+	- checkbox: caixa de múltipla seleção
+	- time: inserir hora
+	- month: inserir mês e ano
+	- week: inserir semana e ano
+	- range: insere uma barra de range (ex. barra de volume)
+	- reset: limpa o formulário
+	- button: cria um botão com uma determinada função
+	- url: link (https://www.......)
+
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formulários</title>
+</head>
+<body>
+	<h1>Formulário - Cadastro de Professor</h1>
+
+	<form>
+
+		<fieldset>
+			<legend align="center"><b>Dados Pessoais<b></legend>
+
+		<label for="nome">Nome:</label><br>
+		<input type="text" id="nome" name="nome" size="50" maxlength="10" minlength="2" required placeholder="Digite seu nome">
+
+		<br><br>
+
+		<label for="telefone">Telefone:</label><br>
+		<input type="tel" id="telefone" name="telefone" size="15" maxlength="15" required placeholder="Digite seu telefone">
+
+		<br><br>
+
+		<label for="email">E-mail:</label><br>
+		<input type="email" id="email" name="email" size="20" required placeholder="Digite seu e-mail">
+
+		<br><br>
+
+		<label for="foto">Foto:</label><br>
+		<input type="file" name="foto" id="foto" accept=".jpg,.png">
+
+		<br><br>
+
+		<label for="dataNascimento">Data de Nascimento:</label><br>
+		<input type="date" name="dataNascimento" id="dataNascimento">
+
+		<br><br>
+
+		<label for="idade">Idade:</label><br>
+		<input type="number" name="idade" id="idade" min="18" max="30" step="1">
+
+		<br><br>
+
+		<label for="senha">Senha:</label><br>
+		<input type="password" name="senha" id="senha" maxlength="8" minlength="4" required size="10" placeholder="Digite sua senha">
+
+		<br><br>
+
+		<label for="sexo">Sexo:</label><br>
+		Feminino <input type="radio" name="sexo" id="sexo" value="F">
+		Masculino <input type="radio" name="sexo" id="sexo" value="M" checked>
+
+		<br><br>
+
+		
+		
+
+		</fieldset>
+
+	<br><br>
+
+	<fieldset>
+		<legend align="center"><b>Dados Profissionais</b></legend>
+
+		<label for="dataHoraCadastro">Data e Hora do Cadastro:</label><br>
+		<input type="datetime-local" name="dataHoraCadastro" id="dataHoraCadastro">
+
+		<br><br>
+
+		<label for="cargo">Cargo:</label><br>
+		<input type="text" name="professor" readonly id="professor" value="Professor">
+
+		<br><br>
+
+		<label for="cargo">Cargo:</label><br>
+		<input type="text" name="professor" disabled id="professor" value="Professor">
+
+		<br><br>
+
+		<label for="corUniforme">Cor Uniforme:</label><br>
+		<input type="color" id="corUniforme" name="corUniforme" value="#FF0000" list="cores">
+
+		<datalist id="cores">
+			<option value="#FF0000">Vermelho</option>
+			<option value="#FFA500">Laranja</option>
+			<option value="#FFFF00">Amarelo</option>
+		</datalist>	
+
+		<br><br>
+
+		Períodos de aula:<br>
+		Manhã <input type="checkbox" name="Manhã" id="Manhã" value="M">
+		Tarde <input type="checkbox" name="Tarde" id="Tarde" value="T" checked>
+		Noite <input type="checkbox" name="Noite" id="Noite" value="N">
+		
+		<br><br>
+
+		Horário de Entrada:<br>
+		<input type="time" name="horaEntrada" id="horaEntrada">
+		
+		<br><br>
+
+		Mês de Início:<br>
+		<input type="month" name="mesInicio" id="mesInicio">
+		
+		<br><br>
+
+		Semana de Início:<br>
+		<input type="week" name="semanaInicio" id="semanaInicio">
+		
+		<br><br>
+
+		Curso:<br>
+		<select id="curso" name="curso">
+			<option selected></option>
+			<option value="DS">Des.Sistemas</option>
+			<option value="ED">Edificações</option>
+			<option value="EN">Enfermagem</option>
+			<option value="GE">Geodésia</option>
+			<option value="ME">Mecânica</option>
+			<option value="QU">Qualidade</option>
+		</select>
+
+		<br><br>
+
+		Disciplinas:<br> <small>(CTRL+Click)</small><br>	
+		<select id="disciplinas" name="disciplinas" size="4" multiple>
+			<option value="BD">Banco de Dados</option>
+			<option value="DAW">DAW</option>
+			<option value="APSI">APSI</option>
+			<option value="LOG">Lógica</option>
+		</select>
+
+		<br><br>
+	
+		Veículo que utilizará no campus:<br>
+		<select name="veiculo">
+			<optgroup label="Carros">
+				<option value="GM">GM</option>
+				<option value="VW">VW</option>
+				<option value="Renault">Renault</option>
+			</optgroup>
+
+			<optgroup label="Motos">
+				<option value="Honda">Honda</option>
+				<option value="Yamaha">Yamaha</option>
+				<option value="Suzuki">Suzuki</option>
+			</optgroup>
+			
+
+		</select>
+
+		<br><br>
+
+		Conhecimento:<br>
+		<input type="text" name="conhecimento" id="conhecimento" list="lista-conhecimento">
+
+		<datalist id="lista-conhecimento">
+		<option value="HTML5">HTML5</option>
+		<option value="HTML4">HTML4</option>
+		<option value="CSS3">CSS3</option>
+		<option value="PHP">PHP</option>
+		</datalist>
+
+		<br><br>
+
+		Que nota você se daria: <small>(de 0 a 10)</small><br>
+		<input type="range" name="capacitacao" min="0" max="10" id="capacitacao" value="5">
+
+		<br><br>
+
+		Fale um pouco sobre você:<br>
+		<textarea rows="6" cols="50" name="obs" id="obs" spellcheck></textarea> 
+
+		<br><br>
+
+		LinkedIn:<br>
+		<input type="url" name="url" id="url" required>
+
+		<br><br>
+
+
+
+	</fieldset>
+
+	<br><br>
+
+	<input type="submit" value="Cadastrar">
+	<input type="reset" value="Limpar">
+	<input type="button" value="Mensagem" onclick="alert('ooi');">
+	<br><br>
+
+	</form>
+
+
+</body>
+</html>
+
